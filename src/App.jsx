@@ -6,6 +6,7 @@ import Navbar from "./Component/Navbar/Navbar";
 import Banner from "./Component/Banner/Banner";
 import Items from "./Component/Items/Items";
 import { FaRegHeart } from "react-icons/fa";
+import Footer from "./Component/Footer/Footer";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }
