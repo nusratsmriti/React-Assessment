@@ -15,7 +15,7 @@ export default function Banner() {
           <button className="btn sora px-[32px] py-[16px] rounded-[36px] mt-[32px] bg-white text-black font-medium">
             Explore Actions{" "}
           </button>
-          <div className="m-0"></div>
+          
         </div>
       </div>
     </div>
