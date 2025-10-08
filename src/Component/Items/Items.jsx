@@ -3,6 +3,8 @@ import { FaRegHeart } from "react-icons/fa";
 
 export default function Items() {
   const [items, setItems] = useState([]);
+  
+  
 
   useEffect(() => {
     fetch("/items.json")
@@ -10,6 +12,12 @@ export default function Items() {
       .then((data) => setItems(data))
       .catch((err) => console.error(err));
   }, []);
+
+  
+  const handleHideDiv = () => {
+    const favoriteDivElement = document.getElementById("favorite-div");
+    favoriteDivElement.classList.add('hidden');
+  }
 
   return (
     <div className="">
@@ -43,7 +51,12 @@ export default function Items() {
                 <td className="text-sm md:text-base">{item.timeLeft}</td>
                 <td>
                   <div className="flex justify-center items-center">
-                    <FaRegHeart className="text-xl" />
+                    <FaRegHeart
+                      onClick={
+                        (() => handleAddedFavorite(item), handleHideDiv)
+                      }
+                      className="text-xl"
+                    />
                   </div>
                 </td>
               </tr>

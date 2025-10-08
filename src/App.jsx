@@ -7,11 +7,23 @@ import Banner from "./Component/Banner/Banner";
 import Items from "./Component/Items/Items";
 import { FaRegHeart } from "react-icons/fa";
 import Footer from "./Component/Footer/Footer";
-
+import { IoCloseSharp } from "react-icons/io5";
+import FavoriteCard from "./Component/FavoriteCard/FavoriteCard";
 
 function App() {
+ 
+  const [favorites, setFavorites] = useState([]);
+  console.log(favorites)
+   const handleAddedFavorite = (item) => {
+     if (favorites.includes(item.id)) {
+       setFavorites(favorites.filter((id) => id !== item.id));
+     } else {
+       setFavorites([...favorites, item.id]);
+     }
+   };
   return (
     <>
+      
       <Navbar></Navbar>
       <Banner></Banner>
       <div className="items-section pb-[100px] sora bg-[#dfe7ef] px-4 sm:px-6 md:px-10 lg:px-[140px] pt-10 lg:pt-[132px]">
@@ -35,8 +47,12 @@ function App() {
                   </h1>
                   <h2 className=" pb-2 ">Favorite Items</h2>
                 </div>
+
+                <div className="show-item">
+                  
+                </div>
                 {/* Favorite section */}
-                <div>
+                <div id="favorite-div">
                   <div className="text-center p-8 border-b-2 border-blue-200 ">
                     <p className=" text-[26px]">No favorites yets</p>
                     <p className="opacity-70 text-[18px] ">
